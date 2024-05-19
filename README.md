@@ -1,6 +1,6 @@
 # Microservice Personality Info Lookup
 
-CS361 Sprint 2 - Personality Info Lookup Microservice uses ZeroMQ for the communication pipe. Receiver will read the personality type written in a text file, sends it to the server that looks up the corresponding info in a csv file and sends it back to the receiver.
+CS361 Sprint 2 - Personality Info Lookup Microservice uses ZeroMQ for the communication pipe. Microserive will receive personality type as a string, looks up the corresponding personality info in a csv file, and sends the info as a string back to the main program.
 
 ## Socket Setup
 
@@ -20,37 +20,50 @@ socket.connect("tcp://localhost:5000")
 
 ## Request Data
 
-Once connection is established, receiver will read the personality-type.txt file for any requested personality type. Program can write the personality type in the personality-type.txt file:
-
-> PersonalityType1
-
-Then receiver will automatically set the personality type written in the text file as the request:
+Once connection is established, example program can set the personality type searching for more info on as the request and send the request to the server:
 
 ```
-request = personality_type
-```
+# Set the personality type requesting for info as the request
+request = 'type1'
 
-and send the request to the server:
-
-```
+# Send request and wait for response
+print(f"Searching for personality {request} ...")
 socket.send_string(request)
 ```
 
-Afterward sending the request, receiver clears the personality-type.txt file and waits for the next personality type written.
-
 ## Receive Data
 
-Following is an example on how to receive the response back from the server. Note: must use "recv_string()" to receive string response. Microservice receiver will then write the personality info result in the personality-result.txt file.
+Use the followng example codes to receive the response back from the microservice server. Example program can then write the personality info result in the CLI, the personality-result.txt file, or show in an alert pop up box.
+> [!Note]
+> Must use "recv_string()" to receive string response.
 
+Get response with:
 ```
-# Get reply
+# Get response from microservice server
 message = socket.recv_string()
+```
+### Print response in CLI
+```
+print(f"Your Personality type is: {request}\n [ {message} ]")
+```
 
-
-# Write response to a text file
+###  Write response in a text file
+```
 with open('personality-result.txt', 'w') as file:
     file.write(message)
 ```
+### Display info as pop up message box
+
+Install PyMsgBox by typing in the terminal:
+```
+>>> pip install PyMsgBox
+```
+Then in example program:
+```
+import pymsgbox
+pymsgbox.alert(message, request, button='OK')
+```
+
 
 ## UML Diagram
 

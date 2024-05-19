@@ -53,3 +53,7 @@ with open('personality-result.txt', 'w') as file:
 ```
 
 ## UML Diagram
+<img width="713" alt="image" src="https://github.com/kellyayong/Microservice-Info-lookup/assets/73264187/f118e725-a97f-4df7-bf2f-4ab4deef5176">
+
+
+

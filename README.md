@@ -22,7 +22,7 @@ socket.connect("tcp://localhost:5000")
 
 Once connection is established, receiver will read the personality-type.txt file for any requested personality type. Program can write the personality type in the personality-type.txt file:
 
-> type1
+> PersonalityType1
 
 Then receiver will automatically set the personality type written in the text file as the request:
 
@@ -53,7 +53,5 @@ with open('personality-result.txt', 'w') as file:
 ```
 
 ## UML Diagram
+
 <img width="713" alt="image" src="https://github.com/kellyayong/Microservice-Info-lookup/assets/73264187/f118e725-a97f-4df7-bf2f-4ab4deef5176">
-
-
-

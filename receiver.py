@@ -26,13 +26,13 @@ while True:
 
             # Send request and wait for response
             # print(f"Sending request {request} …")
-            print(f"Searching for personality {request} …")
+            print(f"Searching for personality {request} ...")
             socket.send_string(request)
 
             # Get reply
             message = socket.recv_string()
             # print(f"Received reply [ {message} ]")
-            print(f"Your Personality type is: {request} \n [ {message} ]")
+            print(f"Your Personality type is: {request}\n [ {message} ]")
 
     # Clear file after done with personality type
     with open(file_path, 'w') as file:

@@ -14,7 +14,7 @@ socket.bind("tcp://*:5000")
 
 def convert_file():
     # Find file with personality info
-    filename = "personality_info.csv"
+    filename = "personality-info.csv"
 
     # Create empty dictionary
     personality_types = {}
@@ -39,8 +39,12 @@ def lookup(type):
     # Convert columns in file into dictionary
     personality_types_dict = convert_file()
 
-    # Return info for corresponding personality type
-    personality_info = personality_types_dict[type]
+    # Check if type exist in dictionary
+    if type in personality_types_dict.keys():
+        personality_info = personality_types_dict[type]
+    else:
+        personality_info = "Error: Personality type does not exist!"
+
     return personality_info
 
 

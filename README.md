@@ -66,5 +66,5 @@ pymsgbox.alert(message, request, button='OK')
 
 
 ## UML Diagram
+<img width="799" alt="image" src="https://github.com/kellyayong/Microservice-Info-lookup/assets/73264187/4b0d7ab9-0100-4e2c-9035-4564a35c52d8">
 
-<img width="713" alt="image" src="https://github.com/kellyayong/Microservice-Info-lookup/assets/73264187/f118e725-a97f-4df7-bf2f-4ab4deef5176">

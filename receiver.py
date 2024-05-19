@@ -3,9 +3,9 @@
 #   Connects REQ socket to tcp://localhost:5554
 #   Sends personality type to server, expects personality info back
 #
-
 import zmq
 
+# Create context
 context = zmq.Context()
 
 #  Socket to talk to server
@@ -25,14 +25,16 @@ while True:
             request = personality_type
 
             # Send request and wait for response
-            # print(f"Sending request {request} …")
             print(f"Searching for personality {request} ...")
             socket.send_string(request)
 
             # Get reply
             message = socket.recv_string()
-            # print(f"Received reply [ {message} ]")
-            print(f"Your Personality type is: {request}\n [ {message} ]")
+            # print(f"Your Personality type is: {request}\n [ {message} ]")
+
+            # Write response to a text file
+            with open('personality-result.txt', 'w') as file:
+                file.write(message)
 
     # Clear file after done with personality type
     with open(file_path, 'w') as file:

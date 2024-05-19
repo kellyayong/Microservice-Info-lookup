@@ -1,6 +1,6 @@
 #
-#   Personality server in Python
-#   Binds REP socket to tcp://*:5554
+#   Personality type lookup server in Python
+#   Binds REP socket to tcp://*:5000
 #   Expects personality type from client, replies with personality info
 #
 
